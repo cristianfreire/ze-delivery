@@ -32,7 +32,7 @@ form.addEventListener("submit", function(event) {
 
 function abrirMeuApp() {
 	if (navigator.userAgent.match(/Android/i)) {
-		window.location.href = "zedelivery://open";
+		window.location.href = "zedelivery://";
 	} else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
 		window.location.href = 'zedelivery://';
 		setTimeout(function() {
