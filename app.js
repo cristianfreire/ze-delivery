@@ -5,7 +5,7 @@ const searchResults = document.getElementById("search-results");
 form.addEventListener("submit", function(event) {
 	event.preventDefault();
 	const searchTerm = searchInput.value.trim().toLowerCase();
-	if (searchTerm === "bebida") {
+	if (searchTerm.match(/bebida/)) {
 		searchResults.innerHTML = `
 			<article>
 				<h3><a href="#">Zé Delivery</a></h3>
