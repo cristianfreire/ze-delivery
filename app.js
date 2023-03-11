@@ -7,9 +7,9 @@ form.addEventListener("submit", function(event) {
 	const searchTerm = searchInput.value.trim().toLowerCase();
 	if (searchTerm.match(/bebida/)) {
 		searchResults.innerHTML = `
-			<article>
+			<article onclick="abrirMeuApp()">
 				<h3><a href="#">Zé Delivery</a></h3>
-				<p>Entrega de bebidas em até 1h! Confira nossas promoções.</p>
+				<p>Acabou a bebida? Chama o Zé</p>
 			</article>
 		`;
 	} else {
@@ -29,3 +29,16 @@ form.addEventListener("submit", function(event) {
 		`;
 	}
 });
+
+function abrirMeuApp() {
+	if (navigator.userAgent.match(/Android/i)) {
+		window.location.href = 'intent://app#Intent;scheme=zedelivery;package=br.com.neoway.zedelivery;end;';
+	} else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+		window.location.href = 'zedelivery://';
+		setTimeout(function() {
+			window.location.href = 'https://itunes.apple.com/app/myapp/';
+		}, 25);
+	} else {
+		alert('Seu dispositivo não suporta esta ação.');
+	}
+}
